@@ -8,19 +8,9 @@ import java.util.Date;
 
 @Entity
 public class Request {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private int req_id;
-
-    @OneToOne
-    @JoinColumn(name = "car_id")
-    private Cars cars;
-
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
+    private int id;
 
     @Column(name = "req_start")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
@@ -29,37 +19,17 @@ public class Request {
     @Column(name = "req_end")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date req_end;
-
-    @Column(name = "req_permission")
     private String req_permission;
-
-    @Column(name = "req_status")
     private int req_status;
-
-    public Request(){ super(); }
+    private int car_id;
+    private int customer_id;
 
     public int getId() {
-        return req_id;
+        return id;
     }
 
-    public void setId(int req_id) {
-        this.req_id = req_id;
-    }
-
-    public Cars getCar_id() {
-        return cars;
-    }
-
-    public void setCar_id(Cars car_id) {
-        this.cars = cars;
-    }
-
-    public Customer getCust_id() {
-        return customer;
-    }
-
-    public void setCust_id(Customer customer) {
-        this.customer = customer;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Date getReq_start() {
@@ -92,5 +62,21 @@ public class Request {
 
     public void setReq_status(int req_status) {
         this.req_status = req_status;
+    }
+
+    public int getCar_id() {
+        return car_id;
+    }
+
+    public void setCar_id(int car_id) {
+        this.car_id = car_id;
+    }
+
+    public int getCustomer_id() {
+        return customer_id;
+    }
+
+    public void setCustomer_id(int customer_id) {
+        this.customer_id = customer_id;
     }
 }

@@ -9,30 +9,18 @@ public class Cars {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private int car_id;
-
-    @Column(name = "car_name")
+    private int id;
     private String car_name;
-
-    @Column(name = "car_plate")
     private String car_plate;
-
-    @Column(name = "car_image")
     private String car_image;
-
-    @Column(name = "car_status")
     private int car_status;
 
-    @OneToOne(mappedBy = "cars")
-    private Request request;
-
     public int getId() {
-        return car_id;
+        return id;
     }
 
-    public void setId(int car_id) {
-        this.car_id = car_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCar_name() {
