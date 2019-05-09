@@ -33,16 +33,21 @@ public class RequestController {
     @GetMapping("/order/approve/{req_id}")
     public Request approve(@PathVariable("req_id") int req_id) {
         Request request = requestRepository.findOne(req_id);
-        request.setReq_status(1);
+        request.setBooking_status(1);
+        requestRepository.save(request);
+        return request;
+}
+    @GetMapping("/order/reject/{req_id}")
+    public Request reject(@PathVariable("req_id") int req_id) {
+        Request request = requestRepository.findOne(req_id);
+        request.setBooking_status(0);
         requestRepository.save(request);
         return request;
     }
 
-    @GetMapping("/order/reject/{req_id}")
-    public Request reject(@PathVariable("req_id") int req_id) {
+    @GetMapping("/order/{req_id}")
+    public Request request(@PathVariable("req_id") int req_id){
         Request request = requestRepository.findOne(req_id);
-        request.setReq_status(2);
-        requestRepository.save(request);
         return request;
     }
 }

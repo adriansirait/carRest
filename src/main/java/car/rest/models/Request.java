@@ -6,23 +6,21 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity
+@Entity(name = "booking")
 public class Request {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "req_start")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date req_start;
+    private Date booking_start;
 
-    @Column(name = "req_end")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date req_end;
-    private String req_permission;
-    private int req_status;
-    private int car_id;
-    private int customer_id;
+    private Date booking_end;
+    private String booking_permission;
+    private int booking_status;
+    private int cars_id;
+    private int users_id;
 
     public int getId() {
         return id;
@@ -32,51 +30,51 @@ public class Request {
         this.id = id;
     }
 
-    public Date getReq_start() {
-        return req_start;
+    public Date getBooking_start() {
+        return booking_start;
     }
 
-    public void setReq_start(Date req_start) {
-        this.req_start = req_start;
+    public void setBooking_start(Date booking_start) {
+        this.booking_start = booking_start;
     }
 
-    public Date getReq_end() {
-        return req_end;
+    public Date getBooking_end() {
+        return booking_end;
     }
 
-    public void setReq_end(Date req_end) {
-        this.req_end = req_end;
+    public void setBooking_end(Date booking_end) {
+        this.booking_end = booking_end;
     }
 
-    public String getReq_permission() {
-        return req_permission;
+    public String getBooking_permission() {
+        return booking_permission;
     }
 
-    public void setReq_permission(String req_permission) {
-        this.req_permission = req_permission;
+    public void setBooking_permission(String booking_permission) {
+        this.booking_permission = booking_permission;
     }
 
-    public int getReq_status() {
-        return req_status;
+    public int getBooking_status() {
+        return booking_status;
     }
 
-    public void setReq_status(int req_status) {
-        this.req_status = req_status;
+    public void setBooking_status(int booking_status) {
+        this.booking_status = booking_status;
     }
 
-    public int getCar_id() {
-        return car_id;
+    public int getCars_id() {
+        return cars_id;
     }
 
-    public void setCar_id(int car_id) {
-        this.car_id = car_id;
+    public void setCars_id(int cars_id) {
+        this.cars_id = cars_id;
     }
 
-    public int getCustomer_id() {
-        return customer_id;
+    public int getUsers_id() {
+        return users_id;
     }
 
-    public void setCustomer_id(int customer_id) {
-        this.customer_id = customer_id;
+    public void setUsers_id(int users_id) {
+        this.users_id = users_id;
     }
 }
